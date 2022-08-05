@@ -10,7 +10,11 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+<<<<<<< HEAD
     expect(page.getTitleText()).toEqual('Welcome to gestappro-front!');
+=======
+    expect(page.getTitleText()).toEqual('Welcome to appro-front-web!');
+>>>>>>> e204bffc0e22c5bd6d420776d20a05d731074e23
   });
 
   afterEach(async () => {
@@ -18,6 +22,10 @@ describe('workspace-project App', () => {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
+<<<<<<< HEAD
     } as logging.Entry));
+=======
+    }));
+>>>>>>> e204bffc0e22c5bd6d420776d20a05d731074e23
   });
 });

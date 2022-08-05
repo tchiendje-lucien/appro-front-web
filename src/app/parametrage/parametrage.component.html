@@ -1,0 +1,61 @@
+<div class="container p-2">
+   <div class="col-md-12  font-weight-bold mb-3">
+      <p class="font-weight-bold"> Parametrage/Gestion des sites</p>
+   </div>
+   <div class="card col-md-12">
+      <div class="card-body">
+         <!-- {{ville | json}} -->
+         <form [formGroup]="siteform" (ngSubmit)="onSubmit()">
+            <div class="form-row" *ngIf="ville">
+               <div class="form-group col-md-2">
+                  <label for="oid">Oid</label>
+                  <input type="number" class="form-control" id="oid" placeholder="oid" name="oid" formControlName="oid">
+               </div>
+               <div class="form-group col-md-2">
+                  <label for="code">Code</label>
+                  <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="code"
+                     placeholder="Entre le code" required name="code" formControlName="code">
+               </div>
+               <div class="form-group col-md-4">
+                  <label for="nom">Nom</label>
+                  <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="nom"
+                     placeholder="Entre le nom" required name="nom" formControlName="nom">
+               </div>
+            </div>
+            <div class="form-row justify-content-end ">
+               <button type="submit" class="btn btn-primary col-md-1 mr-1 btn-sm">Valider</button>
+               <button type="submit" class="btn btn-primary col-md-1 btn-sm">Annuler</button>
+            </div>
+         </form>
+      </div>
+   </div>
+
+
+   <div class="row   mt-2">
+      <div class="col-md-12">
+         <table class="table table-sm table-bordered" *ngIf="ville">
+            <thead>
+               <tr>
+                  <th class="col-md-2">#</th>
+                  <th class="col-md-2">Code</th>
+                  <th class="col-md-4">Nom</th>
+                  <th class="col-md-2 alignaction">
+                     <i class="bi bi-plus-square-fill ml" (click)="siteform.reset()"></i>
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let v of ville" click>
+                  <td scope="row">{{v.oid}}</td>
+                  <td>{{v.code}}</td>
+                  <td>{{v.name}}</td>
+                  <td class="alignaction">
+                     <i class="bi bi-arrow-up-square-fill mr-5" (click)=onSelectSite(v)></i>
+                     <i class="bi bi-x-circle-fill"></i>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
